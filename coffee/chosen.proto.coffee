@@ -358,6 +358,9 @@ class @Chosen extends AbstractChosen
       @form_field.simulate("change") if typeof Event.simulate is 'function' && (@is_multiple || @form_field.selectedIndex != @current_selectedIndex)
       @current_selectedIndex = @form_field.selectedIndex
 
+      evt.preventDefault()
+      evt.stopPropagation()
+
       this.search_field_scale()
 
   single_set_selected_text: (text=@default_text) ->
